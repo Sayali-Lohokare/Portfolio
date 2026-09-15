@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Sayali Lohokare — Data Science & Analytics portfolio. MSc Computer Science, Maynooth University. Python, SQL, Machine Learning, Power BI, Tableau." />
+<title>Sayali Lohokare — Data Science & Analytics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --border: #2a2d3a;
+    --text: #e8eaf0;
+    --muted: #8b90a0;
+    --accent: #4fd1c5;
+    --accent2: #f6ad55;
+    --white: #ffffff;
+    --card: #1e2130;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 6vw;
+    background: rgba(15, 17, 23, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-resume {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 0.4rem 1.1rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav-resume:hover { background: var(--accent); color: var(--bg); }
+
+  /* SECTIONS */
+  section { padding: 6rem 6vw; max-width: 1100px; margin: 0 auto; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 5rem;
+    max-width: 100%;
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-tag {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  .hero-name {
+    font-family: 'Lora', serif;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 1.8rem;
+    line-height: 1.75;
+  }
+
+  .hero-tagline strong { color: var(--text); font-weight: 500; }
+
+  .hero-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--bg);
+    padding: 0.65rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: opacity 0.2s;
+  }
+
+  .btn-primary:hover { opacity: 0.85; }
+
+  .btn-ghost {
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.65rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: border-color 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--muted); }
+
+  .hero-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lora', serif;
+    font-size: 3rem;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* ABOUT */
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 2rem;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .about-text p strong { color: var(--text); font-weight: 500; }
+
+  .about-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .fact {
+    border-left: 2px solid var(--accent);
+    padding-left: 1rem;
+  }
+
+  .fact-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.2rem;
+  }
+
+  .fact-value {
+    font-size: 0.95rem;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* EXPERIENCE */
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .exp-card {
+    border-left: 2px solid var(--border);
+    padding-left: 2rem;
+    position: relative;
+  }
+
+  .exp-card::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.3rem;
+    gap: 1rem;
+  }
+
+  .exp-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .exp-date {
+    font-size: 0.8rem;
+    color: var(--muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .exp-company {
+    font-size: 0.875rem;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .exp-bullets li {
+    font-size: 0.875rem;
+    color: var(--muted);
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .exp-bullets li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .proj-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    transition: border-color 0.2s;
+  }
+
+  .proj-card:hover { border-color: var(--accent); }
+
+  .proj-type {
+    font-size: 0.7rem;
+    color: var(--accent2);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .proj-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .proj-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .proj-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.72rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+  }
+
+  .proj-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    align-self: flex-start;
+    transition: opacity 0.2s;
+  }
+
+  .proj-link:hover { opacity: 0.7; }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-group {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.3rem 1.5rem;
+  }
+
+  .skill-group-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.8rem;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .skill-tag {
+    background: var(--surface);
+    color: var(--text);
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 3px;
+  }
+
+  /* CERTIFICATIONS */
+  .certs-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.8rem;
+  }
+
+  .cert-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.9rem 1rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .cert-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.45rem;
+  }
+
+  /* CONTACT */
+  .contact-inner {
+    max-width: 560px;
+  }
+
+  .contact-inner p {
+    color: var(--muted);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .contact-row {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+
+  .contact-row:hover { color: var(--accent); }
+
+  .contact-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+
+  /* DIVIDER */
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0 6vw;
+  }
+
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-avatar { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">SL</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="https://github.com/Sayali-Lohokare" target="_blank" class="nav-resume">GitHub ↗</a>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-inner">
+    <div>
+      <p class="hero-tag">Data Science &amp; Analytics</p>
+      <h1 class="hero-name">Sayali<br>Lohokare</h1>
+      <p class="hero-tagline">
+        Building <strong>ML models, analytics dashboards, and data systems</strong> that turn raw, messy data into decisions people can actually act on.<br><br>
+        MSc Computer Science · Maynooth University · Based in Ireland.
+      </p>
+      <div class="hero-links">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="mailto:lohokaresayalisunil@gmail.com" class="btn-ghost">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-avatar">SL</div>
+  </div>
+</div>
+
+<hr class="section-divider" />
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">About</p>
+  <h2>Background</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a Computer Science graduate with a foundation in <strong>QA engineering</strong> and a strong pivot toward <strong>data science and AI</strong>. My commercial experience at Worldline Global Services — one of Europe's largest payment processors — gave me a rigorous foundation in data validation, structured documentation, and cross-functional communication in a regulated environment.</p>
+      <p>Outside of work, I've been building independently: a <strong>deep learning medical image classifier</strong> that detects 14 thoracic conditions from chest X-rays, a <strong>real-world Dublin Bikes demand analysis</strong> across 322,000+ station readings, and a <strong>full-stack social platform</strong> with Spring Boot and MongoDB. Each project starts with messy, real data and ends with something I can actually explain and defend.</p>
+      <p>I'm drawn to problems where the data is complicated, the stakes are real, and the answer isn't obvious until you've done the work properly.</p>
+    </div>
+    <div class="about-facts">
+      <div class="fact">
+        <p class="fact-label">Degree</p>
+        <p class="fact-value">MSc Computer Science (Software Engineering)<br>Maynooth University, Ireland — 2026</p>
+      </div>
+      <div class="fact">
+        <p class="fact-label">Previous degree</p>
+        <p class="fact-value">BEng Information Technology — CGPA 9.86<br>Shrimati Kashibai Navale College of Engineering, India</p>
+      </div>
+      <div class="fact">
+        <p class="fact-label">Location</p>
+        <p class="fact-value">Kildare, Ireland</p>
+      </div>
+      <div class="fact">
+        <p class="fact-label">Looking for</p>
+        <p class="fact-value">Data Analyst · Data Scientist · AI/ML roles</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="section-label">Experience</p>
+  <h2>Career Path</h2>
+  <div class="experience-list">
+    <div class="exp-card">
+      <div class="exp-header">
+        <p class="exp-title">Testing Engineer — Full-Time</p>
+        <p class="exp-date">Oct – Nov 2024</p>
+      </div>
+      <p class="exp-company">Worldline Global Services · Hinjewadi, Pune, India</p>
+      <ul class="exp-bullets">
+        <li>Validated data and functionality across GUI and database layers of a live credit card payment processing system, resolving ~20 defects with documented root cause analysis.</li>
+        <li>Analysed application logs to detect anomalies and trace root causes, communicating findings to technical and non-technical stakeholders in Agile sprints.</li>
+        <li>Maintained structured documentation of test outcomes and defect resolutions throughout the project lifecycle.</li>
+      </ul>
+    </div>
+    <div class="exp-card">
+      <div class="exp-header">
+        <p class="exp-title">Trainee Testing Engineer — Internship</p>
+        <p class="exp-date">Jun – Sep 2024</p>
+      </div>
+      <p class="exp-company">Worldline Global Services · Hinjewadi, Pune, India</p>
+      <ul class="exp-bullets">
+        <li>Executed SQL queries against MySQL and Oracle databases to detect discrepancies and validate data integrity across the credit card system.</li>
+        <li>Performed structured data validation ensuring cross-system consistency, documenting validation processes and resolutions throughout.</li>
+        <li>Collaborated with QA, development, and business stakeholders in Agile/SCRUM, gaining working knowledge of payment data ecosystems and structured data flows.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-label">Projects</p>
+  <h2>What I've Built</h2>
+  <div class="projects-grid">
+
+    <div class="proj-card">
+      <p class="proj-type">Machine Learning · Healthcare</p>
+      <p class="proj-title">Chest X-Ray Disease Classification</p>
+      <p class="proj-desc">Multi-label deep learning classifier detecting 14 thoracic conditions from the NIH ChestX-ray14 dataset (112,120 images). Handled class imbalance with weighted loss, iterated through four configurations to improve accuracy from 57% to 76%, evaluated with AUC-ROC and F1-score. Published full research paper and video walkthrough.</p>
+      <div class="proj-tags">
+        <span class="tag">Python</span><span class="tag">DenseNet-121</span><span class="tag">Transfer Learning</span><span class="tag">CNNs</span><span class="tag">scikit-learn</span>
+      </div>
+      <a href="https://github.com/Sayali-Lohokare/chest-xray-deep-learning-classifier" target="_blank" class="proj-link">View on GitHub →</a>
+    </div>
+
+    <div class="proj-card">
+      <p class="proj-type">Data Analysis · Real-World Dataset</p>
+      <p class="proj-title">Dublin Bikes Rebalancing Analysis</p>
+      <p class="proj-desc">Analysed 322,000+ station-level readings across 114 Dublin Bikes stations using Python and SQL. Identified one station with 55% morning stockouts. Merged weather data via REST API, ran statistical comparisons (correlation, weekday/weekend segmentation), and built an interactive Power BI dashboard with concrete rebalancing recommendations.</p>
+      <div class="proj-tags">
+        <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">REST API</span><span class="tag">Statistical Analysis</span>
+      </div>
+      <a href="https://github.com/Sayali-Lohokare/dublinbikes-analysis" target="_blank" class="proj-link">View on GitHub →</a>
+    </div>
+
+    <div class="proj-card">
+      <p class="proj-type">Business Intelligence · Dashboard</p>
+      <p class="proj-title">Sales & Business Performance Analysis</p>
+      <p class="proj-desc">Multi-dashboard Tableau project covering sales KPIs, regional performance, product profitability, sub-category analysis, and customer segmentation. Designed Tableau Stories presenting complex business data as structured narratives for technical and executive audiences.</p>
+      <div class="proj-tags">
+        <span class="tag">Tableau</span><span class="tag">Power BI</span><span class="tag">KPI Reporting</span><span class="tag">Data Storytelling</span>
+      </div>
+      <a href="https://github.com/Sayali-Lohokare/tableau-sales-performance-analysis" target="_blank" class="proj-link">View on GitHub →</a>
+    </div>
+
+    <div class="proj-card">
+      <p class="proj-type">Full-Stack · Backend</p>
+      <p class="proj-title">Ripple — Social Platform</p>
+      <p class="proj-desc">Full-stack Twitter-style platform with Java Spring Boot, MongoDB Atlas, and Ionic React. Secure JWT-authenticated REST APIs across a layered architecture, multiple design patterns applied throughout, and MongoDB query optimisation for improved feed load times.</p>
+      <div class="proj-tags">
+        <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">MongoDB</span><span class="tag">Ionic React</span><span class="tag">JWT</span>
+      </div>
+      <a href="https://github.com/Sayali-Lohokare/ripple-twitter-clone" target="_blank" class="proj-link">View on GitHub →</a>
+    </div>
+
+    <div class="proj-card">
+      <p class="proj-type">AI · EdTech · Unity</p>
+      <p class="proj-title">VREdu — AI-Adaptive Virtual Classroom</p>
+      <p class="proj-desc">PC-based educational application in Unity teaching searching and sorting algorithms through interactive 3D activities. Features a rule-based AI tutor with adaptive difficulty and mistake detection, an LLM-powered Q&A panel for on-demand explanations, and structured learner performance analytics.</p>
+      <div class="proj-tags">
+        <span class="tag">Unity 3D</span><span class="tag">C#</span><span class="tag">LLM API</span><span class="tag">Adaptive AI</span>
+      </div>
+      <a href="https://github.com/Sayali-Lohokare/Capstone_VREdu" target="_blank" class="proj-link">View on GitHub →</a>
+    </div>
+
+    <div class="proj-card">
+      <p class="proj-type">Java · Desktop Application</p>
+      <p class="proj-title">JavaFX Multi-Window Web Browser</p>
+      <p class="proj-desc">Multithreaded desktop browser application in JavaFX supporting multiple concurrent windows, automated test coverage with Selenium, JUnit, and JMeter, and structured exception handling for robustness across concurrent sessions.</p>
+      <div class="proj-tags">
+        <span class="tag">Java</span><span class="tag">JavaFX</span><span class="tag">Selenium</span><span class="tag">JUnit</span><span class="tag">Multithreading</span>
+      </div>
+      <a href="https://github.com/Sayali-Lohokare/Java-Web-Browser" target="_blank" class="proj-link">View on GitHub →</a>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label">Skills</p>
+  <h2>What I Work With</h2>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <p class="skill-group-title">Machine Learning & AI</p>
+      <div class="skill-tags">
+        <span class="skill-tag">CNNs</span>
+        <span class="skill-tag">Transfer Learning</span>
+        <span class="skill-tag">Deep Learning</span>
+        <span class="skill-tag">scikit-learn</span>
+        <span class="skill-tag">LLM API Integration</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-title">Data Analysis & EDA</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">NumPy</span>
+        <span class="skill-tag">Statistical Analysis</span>
+        <span class="skill-tag">Data Cleaning</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-title">Data Visualization & BI</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Tableau</span>
+        <span class="skill-tag">Excel (Advanced)</span>
+        <span class="skill-tag">Dashboard Design</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-title">SQL & Databases</p>
+      <div class="skill-tags">
+        <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">Oracle</span>
+        <span class="skill-tag">MongoDB</span>
+        <span class="skill-tag">Data Validation</span>
+        <span class="skill-tag">ETL Concepts</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-title">Languages</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">C#</span>
+        <span class="skill-tag">C++</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-title">Backend & APIs</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Spring Boot</span>
+        <span class="skill-tag">REST APIs</span>
+        <span class="skill-tag">JWT Auth</span>
+        <span class="skill-tag">MongoDB Atlas</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-title">QA & Testing</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Regression Testing</span>
+        <span class="skill-tag">JIRA</span>
+        <span class="skill-tag">Selenium</span>
+        <span class="skill-tag">JUnit</span>
+        <span class="skill-tag">JMeter</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-title">Tools & Methods</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Agile/SCRUM</span>
+        <span class="skill-tag">Unity</span>
+        <span class="skill-tag">Linux</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <h2 style="margin-top: 3.5rem; margin-bottom: 1.5rem;">Certifications</h2>
+  <div class="certs-list">
+    <div class="cert-item"><span class="cert-dot"></span>Deloitte Australia — Data Analytics Job Simulation (Forage)</div>
+    <div class="cert-item"><span class="cert-dot"></span>JPMorgan Chase — Software Engineering Job Simulation (Forage)</div>
+    <div class="cert-item"><span class="cert-dot"></span>Responsible AI: Applying AI Principles with Google Cloud</div>
+    <div class="cert-item"><span class="cert-dot"></span>Machine Learning Crash Course: Linear Regression — Google</div>
+    <div class="cert-item"><span class="cert-dot"></span>Intro & Intermediate SQL — DataCamp</div>
+    <div class="cert-item"><span class="cert-dot"></span>Fundamentals of Database Engineering</div>
+    <div class="cert-item"><span class="cert-dot"></span>Python Programming Certification</div>
+    <div class="cert-item"><span class="cert-dot"></span>API & Web Service Introduction</div>
+    <div class="cert-item"><span class="cert-dot"></span>OWASP Top 10 Web Application Security</div>
+    <div class="cert-item"><span class="cert-dot"></span>Java Programming Certification</div>
+    <div class="cert-item"><span class="cert-dot"></span>C++ Programming Certification</div>
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">Contact</p>
+  <h2>Get in touch</h2>
+  <div class="contact-inner">
+    <p>Open to Data Analyst, Data Scientist, and AI/ML roles in Ireland. Feel free to reach out — I respond within a day.</p>
+    <div class="contact-links">
+      <a href="mailto:lohokaresayalisunil@gmail.com" class="contact-row">
+        <span class="contact-icon">✉</span>
+        lohokaresayalisunil@gmail.com
+      </a>
+      <a href="tel:+353899532461" class="contact-row">
+        <span class="contact-icon">📞</span>
+        +353 899 532 461
+      </a>
+      <a href="https://www.linkedin.com/in/sayali-lohokare" target="_blank" class="contact-row">
+        <span class="contact-icon">in</span>
+        linkedin.com/in/sayali-lohokare
+      </a>
+      <a href="https://github.com/Sayali-Lohokare" target="_blank" class="contact-row">
+        <span class="contact-icon">⌥</span>
+        github.com/Sayali-Lohokare
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Sayali Lohokare · Built with HTML & CSS · 2026</p>
+</footer>
+
+</body>
+</html>
